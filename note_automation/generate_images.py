@@ -21,10 +21,10 @@ from google.genai import types
 # ========== 設定 ==========
 
 # Google APIキー（aistudio.google.com/apikey で取得）
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "ここにGoogleのAPIキーを入力")
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "AIzaSyCMOhm4df677kqMVC-0uxAyWk9kE313JkM")
 
 # 使用するモデル
-IMAGE_MODEL = "imagen-3.0-generate-001"
+IMAGE_MODEL = "imagen-4.0-generate-001"
 
 # パス設定
 BASE_DIR    = Path(__file__).parent
