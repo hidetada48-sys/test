@@ -14,14 +14,17 @@ import json
 from datetime import datetime
 from pathlib import Path
 
+from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
+# .envファイルからAPIキーを読み込む
+load_dotenv(Path(__file__).parent / ".env")
 
 # ========== 設定 ==========
 
-# Google APIキー（aistudio.google.com/apikey で取得）
-GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "AIzaSyCMOhm4df677kqMVC-0uxAyWk9kE313JkM")
+# Google APIキー（note_automation/.env の GOOGLE_API_KEY に記載）
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
 # 使用するモデル
 IMAGE_MODEL = "imagen-4.0-generate-001"

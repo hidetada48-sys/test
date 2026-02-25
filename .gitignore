@@ -1,0 +1,9 @@
+# APIキーなどの機密情報
+.env
+
+# Python
+__pycache__/
+*.pyc
+
+# 生成ファイル（必要に応じてコメントアウト）
+# note_automation/output/
