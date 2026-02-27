@@ -99,3 +99,23 @@ python3 note_automation/generate_images.py
 - 記事ファイルのパス
 - 生成された画像の一覧
 - note.comへの投稿手順（貼り付け方）
+
+---
+
+## GitHubへのpush手順
+
+ユーザーから「pushして」と言われたら、以下を実行すること。
+
+```bash
+# input・outputフォルダの変更・追加を全部ステージング
+git add note_automation/input/ note_automation/output/
+
+# コミット（日本語でわかりやすく）
+git commit -m "記事と画像を更新"
+
+# GitHubへpush
+git push origin main
+```
+
+- 新規ファイルも既存ファイルの変更も、両フォルダ内のものはすべて対象になる
+- `.env`（APIキー）は`.gitignore`で除外済みなので誤ってpushされる心配はない
