@@ -1,0 +1,20 @@
+[
+  {
+    "type": "thumbnail",
+    "description_ja": "パソコンの前でほっと一息ついている人物、画面にAIが記事を書いている様子が映っている、モダンでクリーンな雰囲気",
+    "prompt_en": "A person sitting relaxed at a desk in front of a laptop, the screen showing an AI writing an article with glowing text, modern and clean atmosphere, soft natural lighting, minimalist workspace, photorealistic, high quality, no text",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "type": "body",
+    "description_ja": "3つのファイルがAIに入力されて記事と画像が出てくるシンプルなフロー図、白背景・クリーンなデザイン",
+    "prompt_en": "A clean simple flow diagram showing three document files entering an AI brain icon, with an article and images emerging on the right side, white background, minimalist flat design, soft blue and white color palette, photorealistic diagram style, high quality, no text",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "設計変更のビフォーアフター、左に複雑な構成・右にシンプルな構成、矢印でつながれたクリーンな図解",
+    "prompt_en": "A before and after comparison diagram, left side showing a complex tangled system architecture with many nodes and lines, right side showing a clean simple streamlined architecture, connected by a large arrow in the center, white background, clean infographic style, blue and green accent colors, high quality, no text",
+    "aspect_ratio": "1:1"
+  }
+]
