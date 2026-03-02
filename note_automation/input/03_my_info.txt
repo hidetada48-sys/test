@@ -8,7 +8,7 @@
 ## 作ったシステムの概要
 - inputフォルダに3つのファイルを用意するだけで記事と画像が完成する
 - Web調査も自動でやってくれる（Jina AI MCPというツールを使用）
-- 記事に入れる画像もAI（Imagen 3）が自動生成してくれる
+- 記事に入れる画像もAI（Gemini 3.1 Flash Image / Nano Banana 2）が自動生成してくれる
 - Anthropicのプログラミング用APIキーは不要で、Google APIキーだけで動く
 
 ## 開発中に詰まったこと

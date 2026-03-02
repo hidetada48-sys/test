@@ -1,8 +1,8 @@
 """
-Imagen 3 画像生成スクリプト
+Gemini 3.1 Flash Image（Nano Banana 2）画像生成スクリプト
 ============================
 Claude Codeが生成した image_prompts.json を読み込み、
-Imagen 3で画像を生成してoutput/images/に保存する。
+Gemini 3.1 Flash Imageで画像を生成してoutput/images/に保存する。
 
 使い方：
   python3 generate_images.py
@@ -26,8 +26,8 @@ load_dotenv(Path(__file__).parent / ".env")
 # Google APIキー（note_automation/.env の GOOGLE_API_KEY に記載）
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
-# 使用するモデル
-IMAGE_MODEL = "imagen-4.0-generate-001"
+# 使用するモデル（Gemini 3.1 Flash Image = Nano Banana 2）
+IMAGE_MODEL = "gemini-3.1-flash-image-preview"
 
 # パス設定
 BASE_DIR    = Path(__file__).parent
@@ -39,7 +39,7 @@ IMAGE_DIR   = BASE_DIR / "output" / "images"
 
 def main():
     print("=" * 50)
-    print("  Imagen 3 画像生成")
+    print("  Gemini 3.1 Flash Image（Nano Banana 2）画像生成")
     print("=" * 50)
 
     # APIキーの確認
@@ -80,20 +80,31 @@ def main():
         print(f"\n  [{i}/{len(prompts)}] {img_type}: {desc_ja[:40]}...")
 
         try:
-            response = client.models.generate_images(
+            # アスペクト比をプロンプトに含めて指定する
+            prompt_with_aspect = f"{prompt_en} --ar {aspect}"
+
+            # Gemini 3.1 Flash Image は generate_content で画像を生成する
+            response = client.models.generate_content(
                 model=IMAGE_MODEL,
-                prompt=prompt_en,
-                config=types.GenerateImagesConfig(
-                    number_of_images=1,
-                    aspect_ratio=aspect,
+                contents=prompt_with_aspect,
+                config=types.GenerateContentConfig(
+                    response_modalities=["IMAGE", "TEXT"],
                 )
             )
 
-            # 画像を保存
+            # 画像を保存（レスポンスのpartsからINLINE_DATAを取り出す）
             file_name = f"image_{timestamp}_{i:02d}_{img_type}.png"
             file_path = IMAGE_DIR / file_name
 
-            image_bytes = response.generated_images[0].image.image_bytes
+            image_bytes = None
+            for part in response.candidates[0].content.parts:
+                if part.inline_data is not None:
+                    image_bytes = part.inline_data.data
+                    break
+
+            if image_bytes is None:
+                raise ValueError("画像データがレスポンスに含まれていませんでした")
+
             with open(file_path, "wb") as f:
                 f.write(image_bytes)
 
