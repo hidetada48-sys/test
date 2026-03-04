@@ -1,32 +1,32 @@
 [
   {
     "type": "thumbnail",
-    "description_ja": "パソコンの前で作業している人物、画面にAIが文章を生成している様子、モダン・クリーンな雰囲気、白背景・青緑系アクセント",
-    "prompt_en": "A person working at a laptop in a minimalist modern workspace, the screen glowing with AI-generated text flowing across it, soft natural lighting from the side, white background, blue-green accent colors on the screen and desk accessories, photorealistic, high quality, if any text appears use Japanese characters",
+    "description_ja": "Claudeロゴを中央に配置し放射状に広がる複雑な神経ネットワーク・発光データライン・パーティクルが空間を埋め尽くす、3層構造で奥行き、ラベンダー〜シアンのネオングロー、ダークテック・フューチャリスティック",
+    "prompt_en": "Dark navy to dark teal gradient background, the Claude AI logo centered as the focal point with radiating complex neural network connections spreading outward, multiple depth layers with foreground particles, midground glowing data lines in lavender and cyan, background abstract circuit patterns, neon bloom effects, 3D isometric CG rendering, photorealistic quality, high-density futuristic tech aesthetic, electric cyan and lavender neon glow, particle dispersion, high saturation accents against dark background, cinematic depth of field focused on center logo, no additional text, if any text appears use Japanese characters",
     "aspect_ratio": "16:9"
   },
   {
     "type": "body",
-    "description_ja": "3つのファイルがAIに入力されて記事と画像が出てくるフロー図、白背景・青緑系・クリーン",
-    "prompt_en": "A clean flow diagram on white background showing three document icons on the left feeding into a central glowing AI brain icon, with a finished article and image icons emerging on the right, connected by smooth blue-green arrows, soft shadows, minimalist photorealistic style, blue-green color palette, high quality, if any text appears use Japanese characters",
-    "aspect_ratio": "1:1"
+    "description_ja": "左から右へ流れる複雑な多段データパイプライン、入力ノード群→発光処理コア→出力ノード群を3D isometricで表現、シアン・オレンジのデータストリームが螺旋状に絡み合う、ダークネイビー背景・ネオングロー",
+    "prompt_en": "Dark navy background, complex multi-stage data pipeline visualization flowing left to right, left side showing multiple glowing input nodes in cyan, center featuring a luminous processing core orb with radiating energy, right side displaying output nodes in orange-gold, spiral intertwining data streams in electric cyan and neon orange connecting all stages, 3D isometric CG rendering, multiple depth layers, particle effects along data lines, neon bloom glow on all elements, futuristic tech infographic style, high complexity and visual density, no text, if any text appears use Japanese characters",
+    "aspect_ratio": "16:9"
   },
   {
     "type": "body",
-    "description_ja": "3つのツールがパズルのピースのように連携している様子、白背景・青緑系・写真調",
-    "prompt_en": "Three interlocking puzzle pieces fitting together perfectly on a white background, each piece glowing softly in blue-green tones representing different AI tools working in harmony, clean shadows, minimalist photorealistic style, consistent blue-green color palette, high quality, if any text appears use Japanese characters",
-    "aspect_ratio": "1:1"
+    "description_ja": "3つの発光ノードが軌道リングに囲まれた惑星系構造、各ノード間をオレンジ・シアン・ゴールドの多色グローラインとパーティクルが行き交う高密度ネットワーク、ダークテック・3D isometric",
+    "prompt_en": "Dark teal to navy gradient background, three luminous spherical nodes arranged in a triangular formation each surrounded by glowing orbital rings like miniature planets, dense interconnecting lines between nodes in neon orange cyan and gold with high-intensity bloom, particle streams flowing along connection paths, 3D isometric CG rendering with depth, each node emitting its own colored ambient light, complex multi-layered network visualization, high saturation neon glow accents, futuristic dark tech aesthetic, no text, if any text appears use Japanese characters",
+    "aspect_ratio": "16:9"
   },
   {
     "type": "body",
-    "description_ja": "二段階AIフロー、情報→指示書→記事の流れ、白背景・青緑系・クリーンな図解",
-    "prompt_en": "A two-stage flow diagram on white background showing raw information icons on the left flowing into a structured document icon in the center, then into a polished finished article on the right, smooth blue-green arrows connecting each stage, soft clean shadows, minimalist photorealistic style, blue-green color palette, high quality, if any text appears use Japanese characters",
-    "aspect_ratio": "1:1"
+    "description_ja": "左半分に複雑に絡み合うレッド・オレンジのカオスなサーキット（障害・複雑性のビジュアルメタファー）、右半分に整然としたシアンのクリーン回路（解決後）、中央に垂直の発光ライン、ダークテック・ネオングロー",
+    "prompt_en": "Dark navy background split vertically, left half showing chaotic tangled circuit board patterns in red and orange neon with overlapping distorted lines and error-like glitch effects suggesting complexity and obstacles, right half showing clean elegant orderly circuit paths in electric cyan with smooth organized flow suggesting resolution and clarity, center divided by a bright vertical neon orange light beam, 3D isometric CG rendering, strong contrast between chaos and order, neon bloom glow on all elements, futuristic dark tech aesthetic, high visual complexity, no text, if any text appears use Japanese characters",
+    "aspect_ratio": "16:9"
   },
   {
     "type": "body",
-    "description_ja": "時計とカレンダーのビフォーアフター、2〜3時間から30分への変化、白背景・青緑系・写真調",
-    "prompt_en": "A before and after comparison on white background, left side showing a heavy analog clock with a tired overwhelmed atmosphere in muted tones, right side showing a light minimal clock face with a fresh energetic atmosphere in blue-green tones, a clean arrow pointing from left to right in the center, photorealistic, consistent blue-green color palette, high quality, if any text appears use Japanese characters",
-    "aspect_ratio": "1:1"
+    "description_ja": "上下2層の3D空間、上層でデータが収集・圧縮され下層で展開・生成される二段構造、ラベンダー→シアンの発光ストリームで接続、複雑な回路パターンが奥行きを演出、ダークテック・フューチャリスティック",
+    "prompt_en": "Dark navy to dark teal background, two distinct 3D layers in an isometric space, upper layer showing multiple data sources converging and compressing into a central node with lavender neon glow, lower layer showing the same energy expanding and generating structured outputs in electric cyan glow, connecting vertical streams flowing between layers in lavender transitioning to cyan gradient, intricate circuit board patterns on both layers creating depth and complexity, particle dispersion between layers, photorealistic 3D CG rendering, neon bloom effects, futuristic tech aesthetic, no text, if any text appears use Japanese characters",
+    "aspect_ratio": "16:9"
   }
 ]
