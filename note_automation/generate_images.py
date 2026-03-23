@@ -30,9 +30,22 @@ GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 IMAGE_MODEL = "gemini-3.1-flash-image-preview"
 
 # パス設定
-BASE_DIR    = Path(__file__).parent
-PROMPT_FILE = BASE_DIR / "output" / "image_prompts.json"
-IMAGE_DIR   = BASE_DIR / "output" / "images"
+BASE_DIR   = Path(__file__).parent
+OUTPUT_DIR = BASE_DIR / "output"
+
+
+def find_current_output_dir() -> Path:
+    """output/YYYY-MM-DD/ フォルダのうち image_prompts.json があるものを返す"""
+    date_dirs = sorted(
+        [d for d in OUTPUT_DIR.iterdir() if d.is_dir() and d.name[:4].isdigit()],
+        reverse=True  # 新しい日付順
+    )
+    for d in date_dirs:
+        if (d / "image_prompts.json").exists():
+            return d
+    raise FileNotFoundError(
+        "image_prompts.json が見つかりません。先にClaude Codeで記事を生成してください。"
+    )
 
 
 # ========== メイン処理 ==========
@@ -46,14 +59,20 @@ def main():
     if GOOGLE_API_KEY == "ここにGoogleのAPIキーを入力":
         print("\n❌ Google APIキーが設定されていません")
         print("  → https://aistudio.google.com/apikey でキーを取得")
-        print("  → generate_images.py の GOOGLE_API_KEY に入力")
+        print("  → note_automation/.env の GOOGLE_API_KEY に入力")
         sys.exit(1)
 
-    # image_prompts.json の確認
-    if not PROMPT_FILE.exists():
-        print(f"\n❌ プロンプトファイルが見つかりません: {PROMPT_FILE}")
-        print("  → 先にClaude Codeで記事を生成してください")
+    # 現在の出力フォルダ（image_prompts.jsonがある最新の日付フォルダ）を取得
+    try:
+        current_dir = find_current_output_dir()
+    except FileNotFoundError as e:
+        print(f"\n❌ {e}")
         sys.exit(1)
+
+    PROMPT_FILE = current_dir / "image_prompts.json"
+    IMAGE_DIR   = current_dir / "images"
+
+    print(f"\n📁 対象フォルダ: {current_dir.name}")
 
     # プロンプトの読み込み
     with open(PROMPT_FILE, "r", encoding="utf-8") as f:
