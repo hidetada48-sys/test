@@ -1,0 +1,32 @@
+[
+  {
+    "type": "thumbnail",
+    "description_ja": "Xブックマーク→Claude Code→NotebookLMへ繋がるフロー。ダークテック×ネオングロー系サムネイル",
+    "prompt_en": "Dark tech thumbnail, 16:9 wide banner. Dark navy to dark teal gradient background (#0d1b3e to #0d2d35). Center: 3D isometric terminal screen with glowing cyan code streams. Left: stylized bookmark icon with neon orange glow. Right: abstract document/notebook icon with lavender glow. Connecting lines flow left to right with electric cyan light trails and particle effects. Neon glow, bloom effect, high saturation accents, photorealistic 3D CG render. No text. No characters.",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "type": "body",
+    "description_ja": "X→Playwright→テキストファイル→Google Drive→NotebookLMの処理フローをノードと発光ラインで視覚化",
+    "prompt_en": "Dark tech infographic style, square format. Dark navy background (#0d1b3e). Five glowing 3D isometric nodes connected by electric cyan light lines from left to right: stylized bird icon node, browser/robot arm node, text document stack node, cloud drive node, notebook/brain node. Each connection has flowing particle streams in cyan (#00ccff). Neon glow effect on each node, bloom lighting, depth of field focus on center node. Futuristic, high-density, premium feel. No text. No characters.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "構造化されたブックマークテキストファイルの中身イメージ。引用ツイートのエンゲージメント数がゴールドのデータラインで光る",
+    "prompt_en": "Dark tech visualization, square format. Dark navy background. 3D isometric floating text document panels with semi-transparent cyan text streams. Gold (#ffd700) glowing data lines connecting engagement number badges (heart icons, retweet arrows) to the document panels. Structured layers of documents stacking with depth. Gold and cyan neon glow, particle scatter, bloom effect. High-density information aesthetic, futuristic digital archive feel. No text. No characters.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "赤いエラー表示が画面を覆い、コードが散乱するデバッグ地獄のイメージ。レッドグロー強め",
+    "prompt_en": "Dark tech dramatic scene, square format. Dark background with intense red neon glow (#ff3333) radiating from multiple floating screen panels showing error patterns. 3D isometric scattered code fragments and broken circuit elements floating in space. Red bloom effect dominates, with faint cyan (#00ccff) accents suggesting underlying data. Chaotic yet structured composition, high tension atmosphere. Red glow strong, photorealistic 3D CG. No text. No characters.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "無数のブックマークが光の粒子となってNotebookLMへ流れ込むイメージ。ラベンダー×シアングロー、パーティクル多め",
+    "prompt_en": "Dark tech liberation scene, square format. Dark navy background. Countless small bookmark-shaped light particles (#cc99ff lavender and #00ccff cyan) flowing in a spiral stream toward a glowing central 3D notebook/brain orb. Particle density high, motion blur on trailing particles suggesting movement. Central orb emits strong lavender glow with bloom effect. Surrounding space filled with floating particle scatter. Peaceful yet energetic, premium futuristic feel. No text. No characters.",
+    "aspect_ratio": "1:1"
+  }
+]
