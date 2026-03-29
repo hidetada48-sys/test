@@ -233,6 +233,21 @@ Jina AI MCPの検索ツールを使い、テーマに関連する情報を調査
 
 `output/YYYY-MM-DD/article_YYYYMMDD_HHMMSS.md` として保存する。（フォルダがなければ作成する）
 
+### ステップ7.5：品質評価を実施する
+
+記事を保存したら、`article-reviewer` エージェントを呼び出して品質評価を行う。
+
+```
+use_mcp_tool またはサブエージェントとして article-reviewer を呼び出す
+対象ファイル: output/YYYY-MM-DD/article_YYYYMMDD_HHMMSS.md
+```
+
+**評価結果に応じた対応：**
+- **PASS** の場合：ステップ8（画像生成）に進む
+- **REVISE** の場合：改善点をもとに記事を修正し、再度 article-reviewer で評価する
+  - 修正→再評価のループは最大3回まで
+  - 3回後もREVISEの場合はユーザーに判断を仰ぐ
+
 ### ステップ8：画像を生成する
 
 以下のコマンドを実行する：
