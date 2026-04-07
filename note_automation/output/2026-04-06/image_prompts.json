@@ -1,0 +1,26 @@
+[
+  {
+    "type": "thumbnail",
+    "description_ja": "中央にAIコア（発光する球体）、左から大量のツイートカード・データストリームが流れ込み、右側に整理されたリスト・チェックマークが出力されるイメージ。情報が処理されて整理される流れを視覚化",
+    "prompt_en": "Dark navy background with deep teal gradient, isometric 3D CG style. Center: glowing AI core sphere with electric cyan and orange neon glow. Left side: cascading stream of document cards and data particles flowing into the core. Right side: organized list structure with checkmarks emerging from the core. Neon glow effects, particle scatter, multi-point lighting, bloom effect, no text, high quality render, futuristic tech aesthetic, 16:9 composition",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "type": "body",
+    "description_ja": "大量のカード・ファイルが積み重なっている山のイメージ。情報過多・処理しきれない状況を表現。暗めの背景にオレンジのグロー",
+    "prompt_en": "Dark background, isometric 3D CG style. A towering pile of document cards, file folders, and notification badges stacked chaotically, overwhelming and unstable. Orange neon glow highlighting the edges, pressure and overload visual mood, particle scatter, bloom effect, no text, high quality render, futuristic tech aesthetic, 1:1 square composition",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "57枚のファイルがAIコアに流れ込み、13のカテゴリに整理されて出てくる様子。シアンとゴールドのデータフロー、中央フォーカス",
+    "prompt_en": "Dark navy background, isometric 3D CG style. Center: glowing AI core sphere. Left: 57 document files streaming into the core as electric cyan data flow. Right: 13 organized category folders emerging neatly, golden data lines. Depth of field focused on center, neon glow, bloom effect, no text, high quality render, futuristic tech aesthetic, 1:1 square composition",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "Before/After対比。左に積み重なった未読ファイルの山（くすんだオレンジ）、右に整理されたリスト（クリーンなシアン）、中央に変換の矢印",
+    "prompt_en": "Dark background split composition, isometric 3D CG style. Left half: chaotic pile of unread documents with dull orange glow, disorder and clutter. Center: bold glowing arrow pointing right with golden light. Right half: clean organized list structure with electric cyan glow, order and clarity. Neon effects, bloom, no text, high quality render, futuristic tech aesthetic, 1:1 square composition",
+    "aspect_ratio": "1:1"
+  }
+]
