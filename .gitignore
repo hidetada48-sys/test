@@ -7,3 +7,6 @@ __pycache__/
 
 # 生成ファイル（必要に応じてコメントアウト）
 # note_automation/output/
+
+# Playwright MCPの自動生成ファイル
+.playwright-mcp/
