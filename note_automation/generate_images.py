@@ -27,7 +27,7 @@ load_dotenv(Path(__file__).parent / ".env")
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
 # 使用するモデル（Gemini 3.1 Flash Image = Nano Banana 2）
-IMAGE_MODEL = "gemini-3.1-flash-image-preview"
+IMAGE_MODEL = "gemini-3-pro-image-preview"
 
 # パス設定
 BASE_DIR   = Path(__file__).parent
