@@ -246,7 +246,9 @@ Jina AI MCPの検索ツールを使い、テーマに関連する情報を調査
 
 【プロンプト生成ルール】
 - `input/04_image_style.txt` のトンマナをプロンプトに必ず反映すること
-- 画像内にテキスト・文字が含まれる場合は、必ず日本語フォントで表示するよう英語プロンプトに明記すること（例："if any text appears, use Japanese characters"）
+- **テキスト・文字は画像内に一切入れないこと**。全プロンプトの末尾に必ず `No text, no labels, no letters, no words of any kind inside the image.` を付ける
+- **「テキスト領域」「タイトルエリア」を示す表現をプロンプトに入れないこと**（例: "text area", "title area", "Bold text area", "text placeholder"）。こうした語句はモデルがそのまま文字として画像に描いてしまう原因になる
+- コード・端末画面を表現したい場合は「文字を使わず、色付きの矩形ブロックや光る横線だけで表現する」よう指示すること（例: `represent code lines as colored horizontal bars, no actual characters`）
 - `04_image_style.txt` が存在しない、または「お任せ」の場合は、ステップ5で決定したトンマナを全プロンプトに一貫して反映し、統一感を確保すること
 
 形式：

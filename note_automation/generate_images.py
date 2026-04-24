@@ -26,8 +26,8 @@ load_dotenv(Path(__file__).parent / ".env")
 # Google APIキー（note_automation/.env の GOOGLE_API_KEY に記載）
 GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY", "")
 
-# 使用するモデル（Gemini 3.1 Flash Image = Nano Banana 2）
-IMAGE_MODEL = "gemini-3-pro-image-preview"
+# 使用するモデル（Nano Banana Pro）
+IMAGE_MODEL = "nano-banana-pro-preview"
 
 # パス設定
 BASE_DIR   = Path(__file__).parent
@@ -99,15 +99,16 @@ def main():
         print(f"\n  [{i}/{len(prompts)}] {img_type}: {desc_ja[:40]}...")
 
         try:
-            # アスペクト比をプロンプトに含めて指定する
-            prompt_with_aspect = f"{prompt_en} --ar {aspect}"
-
-            # Gemini 3.1 Flash Image は generate_content で画像を生成する
+            # アスペクト比・解像度をImageConfigパラメータとして正しく渡す
             response = client.models.generate_content(
                 model=IMAGE_MODEL,
-                contents=prompt_with_aspect,
+                contents=prompt_en,
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE", "TEXT"],
+                    image_config=types.ImageConfig(
+                        aspect_ratio=aspect,
+                        image_size="2K",
+                    ),
                 )
             )
 
