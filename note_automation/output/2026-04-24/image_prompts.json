@@ -1,0 +1,38 @@
+[
+  {
+    "type": "thumbnail",
+    "description_ja": "「トークンが飛ぶ→解決」の対比構図。Claude×NotebookLMをGoogle Blueの太い帯で繋ぐ。メインタイトル「トークンが飛んでいた」を左上起点のBoldテキストで配置。白ベース・Google Materialデザイン準拠",
+    "prompt_en": "Google Material Design style thumbnail. White background with a bold Google Blue (#4285F4) horizontal band anchoring the layout. Left side shows a chat interface icon with a red warning indicator representing token overflow. Right side shows a clean notebook/document icon in Google Blue representing NotebookLM. A thick Google Blue arrow connects them left to right, symbolizing the solution. Bold text area at top-left for title overlay. Clean, professional, no small details, strong visual hierarchy. Flat design, no 3D effects. Color palette: white, Google Blue #4285F4, Google Red #DB4437. Minimalist, strong composition, mobile-readable. No text inside the image.",
+    "aspect_ratio": "16:9"
+  },
+  {
+    "type": "body",
+    "description_ja": "notebooklm-pyの仕組み図。「Claude → LMに質問 → LMが30ソースを参照 → Claudeに回答が届く」の一方通行フロー。資料がClaudeのコンテキストに入らないことを強調。Google Materialデザイン・白背景・Blue矢印",
+    "prompt_en": "Google Material Design style flow diagram on white background. Three main elements connected by Google Blue (#4285F4) arrows flowing left to right: 1) Chat bubble icon on the left representing Claude sending a query, 2) Notebook icon in the center surrounded by small document icons representing 30 sources, 3) Chat bubble icon on the right receiving the answer. A subtle visual boundary shows that source documents do NOT enter the left chat context. Clean flat Material Symbols icons, geometric and simple. Google Blue arrows, white background, secondary details in Google Grey #5F6368. No text inside the image. Professional, clear hierarchy, no 3D effects.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "ターミナル画面風の構図。インストールコマンド1行だけがGoogle Blueでハイライトされている。黒背景・余白多め・シンプル",
+    "prompt_en": "Minimalist terminal screen composition. Very dark background (#202124) with generous padding. A single line of monospace code text highlighted with a Google Blue (#4285F4) glow effect, centered in the frame. The rest of the terminal area is empty and clean. No other text, decorations, or UI chrome. The glowing line conveys simplicity and power. Flat design, no 3D. High contrast, professional, instantly readable at small sizes. No text inside the image.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "「Claude Chat → LM操作 → 30ソース収集 → 回答」のワークフロー図。Google Materialアイコンと矢印で一方向フローを表現。白背景・Google Blue統一",
+    "prompt_en": "Google Material Design workflow diagram on white background. Four icon units connected by Google Blue (#4285F4) arrows flowing left to right: 1) Chat bubble icon, 2) Settings/gear icon, 3) Stacked documents icon, 4) Checkmark/reply icon. Each icon uses Material Symbol style: outlined, geometric, simple. Google Blue for active elements and arrows, Google Grey #5F6368 for subtle connectors. White background #FFFFFF. Clean, professional, strong visual hierarchy. No text inside the image, no 3D effects.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "「ブラウザ不要」を視覚化。大きな×マーク付きのブラウザアイコンと、光るClaudeチャット画面の対比。Google Red（×）とGoogle Blue（Claude）で強調",
+    "prompt_en": "Google Material Design style contrast composition on white background. Left half: a browser window icon with a large Google Red (#DB4437) X mark overlaid, indicating browser is not needed. Right half: a clean chat interface icon with Google Blue (#4285F4) glow, representing Claude Code. A clear visual boundary separates the two halves. Material Symbols icon style, flat, geometric, no 3D effects. Strong color contrast: red for rejection, blue for solution. Professional, instantly readable, mobile-friendly. No text inside the image.",
+    "aspect_ratio": "1:1"
+  },
+  {
+    "type": "body",
+    "description_ja": "3つの変化を3アイコンで表現。「調べ方が変わった」「迷いが消えた」「ブラウザ不要」をMaterial Symbolsアイコン＋エリアで横並び。白背景・Google Blue統一",
+    "prompt_en": "Google Material Design style three-column icon layout on white background. Three equal sections side by side, each containing one large Material Symbol icon: 1) Magnifying glass with refresh arrow, 2) Lightning bolt or fast-forward arrow, 3) Browser window with X mark and a checkmark beside it. All icons in Google Blue (#4285F4), outlined style, geometric and simple. Subtle Google Grey dividers between sections. White background #FFFFFF. Equal visual weight per column, professional, instantly readable. No text inside the image, no 3D effects.",
+    "aspect_ratio": "1:1"
+  }
+]

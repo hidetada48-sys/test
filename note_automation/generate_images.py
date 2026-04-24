@@ -1,8 +1,8 @@
 """
-Gemini 3.1 Flash Image（Nano Banana 2）画像生成スクリプト
+Gemini Nano Banana Pro 画像生成スクリプト
 ============================
 Claude Codeが生成した image_prompts.json を読み込み、
-Gemini 3.1 Flash Imageで画像を生成してoutput/images/に保存する。
+Gemini Nano Banana Pro（gemini-3-pro-image-preview）で画像を生成してoutput/images/に保存する。
 
 使い方：
   python3 generate_images.py
@@ -52,7 +52,7 @@ def find_current_output_dir() -> Path:
 
 def main():
     print("=" * 50)
-    print("  Gemini 3.1 Flash Image（Nano Banana 2）画像生成")
+    print("  Gemini Nano Banana Pro 画像生成")
     print("=" * 50)
 
     # APIキーの確認
