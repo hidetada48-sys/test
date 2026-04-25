@@ -210,13 +210,18 @@ Jina AI MCPの検索ツールを使い、テーマに関連する情報を調査
 
 ### ステップ5：画像の提案を提示し、承認を得る
 
-本文が完成したら、本文の構成を踏まえて画像の挿入箇所・枚数・内容を提案する。
+本文が完成したら、まず `input/04_image_style.txt` を読み込む（このステップの前にまだ読んでいなければ）。その上で本文の構成を踏まえて画像の挿入箇所・枚数・内容を提案する。
 
-`input/04_image_style.txt` のトンマナを踏まえて、以下の形式でユーザーに提示し、**承認を得るまで次のステップに進まないこと**：
+**承認を得るまで次のステップに進まないこと。**
 
-【トンマナ統一ルール】
-- `04_image_style.txt` が存在しない、または「お任せ」の場合は、全画像に共通するトンマナ（色味・画風・雰囲気）をこのステップで決定し、プランに明記すること
-- 全画像を通じて統一感が保たれるよう、色調・構図・スタイルを揃えること
+【サムネイルには以下を必ず含めること】
+- メインコピー：記事タイトルをキャッチーに圧縮した言葉（読者が一瞬で意味をつかめるもの）
+- サブコピー：1〜2行で補完する言葉
+- 構図の方針：左右の役割（Before/After等）・視線の流れ・主要要素3つ以内
+
+【本文画像には以下を含めること】
+- 挿入位置（「## 見出し名」の後）
+- 表現する概念・状態（具体的なビジュアルイメージ）
 
 ```
 【画像プランの確認をお願いします】
@@ -224,12 +229,13 @@ Jina AI MCPの検索ツールを使い、テーマに関連する情報を調査
 合計〇枚を予定しています。
 
 1. サムネイル（記事冒頭）
-   - 内容：〇〇〇〇
-   - スタイル：〇〇〇〇
+   - メインコピー：〇〇〇〇
+   - サブコピー：〇〇〇〇
+   - 構図：左＝〇〇（Before）、右＝〇〇（After）、視線は左→右
 
 2. 本文画像①（「## 見出し名」の後）
-   - 内容：〇〇〇〇
-   - スタイル：〇〇〇〇
+   - 表現するもの：〇〇〇〇
+   - ビジュアルイメージ：〇〇〇〇
 
 ...
 
@@ -238,32 +244,142 @@ Jina AI MCPの検索ツールを使い、テーマに関連する情報を調査
 
 ### ステップ6：本文に画像タグを挿入し、JSONファイルに書き出す
 
+**【最初にやること】** `input/04_image_style.txt` を読み込む（ステップ1でまだ読んでいなければ）。以降のプロンプト生成では、このファイルのフィールド値を直接展開して使うこと。抽象的な言い換えは禁止。
+
 承認済みの画像プランに従い、以下の形式で本文の該当箇所に画像タグを挿入する：
 - `【画像:サムネイル|説明文】` （記事冒頭）
 - `【画像:本文|説明文】` （本文中、承認された箇所）
 
 その後、`output/YYYY-MM-DD/image_prompts.json` に書き出す。（フォルダがなければ作成する）
 
-【プロンプト生成ルール】
-- `input/04_image_style.txt` のトンマナをプロンプトに必ず反映すること
-- **テキスト・文字は画像内に一切入れないこと**。全プロンプトの末尾に必ず `No text, no labels, no letters, no words of any kind inside the image.` を付ける
-- **「テキスト領域」「タイトルエリア」を示す表現をプロンプトに入れないこと**（例: "text area", "title area", "Bold text area", "text placeholder"）。こうした語句はモデルがそのまま文字として画像に描いてしまう原因になる
-- コード・端末画面を表現したい場合は「文字を使わず、色付きの矩形ブロックや光る横線だけで表現する」よう指示すること（例: `represent code lines as colored horizontal bars, no actual characters`）
-- `04_image_style.txt` が存在しない、または「お任せ」の場合は、ステップ5で決定したトンマナを全プロンプトに一貫して反映し、統一感を確保すること
+---
 
-形式：
+#### 【言語ルール：厳守】
+
+**全プロンプトは日本語のみで記述する。英語プロンプト一切禁止（固有名詞・ブランド名を除く）。**
+
+救済措置（英語が混入してしまった場合）：
+- **推奨**：`Place the Japanese text "〇〇" ([English]) at [position]` の形式で日本語を組み込む
+- **代替**：日本語訳プロンプトを追記し、Nano Banana Pro には日本語訳のみ使用する
+
+---
+
+#### 【プロンプト生成ルール：9要素】
+
+各画像のプロンプトは以下の9要素で構成する。
+
+**① 冒頭テキスト表示指示（サムネイルは必須）**
+
+```
+画像内に『[メインコピー]』という日本語テキストを左上起点で大きく表示。
+```
+
+**② 表示環境の指定（サムネイルは必須）**
+
+```
+Xのスマホ画面で読まれることを前提に、メインコピーが一瞬で読めるよう2〜3段に分けて強い視線誘導を作る。
+```
+
+**③ メインコピー・サブコピー**
+
+ステップ5で承認されたコピーをそのまま使う。
+
+**④ 構図の指定（具体的に）**
+
+- 左右の役割分担（Before/After等）を明示する
+- 主要要素は3つ以内に絞ることを明示する
+- 視線の流れを明示する（「左から右へ〇〇の流れで見せる」等）
+
+**⑤ 禁止事項の明示**
+
+```
+細かい注釈・多数の要素・均等配置・説明図っぽい表現を避ける。
+```
+
+**⑥ 色の指定**
+
+`color_system.brand_colors` の値（google_blue・google_red・google_green・google_yellow）を色コードごとそのままプロンプトに展開する。
+`layout_principles.structural_anchor` の値をそのままプロンプトに展開する。
+`background_colors` の値をそのまま背景色として展開する。
+
+**⑦ テキスト品質の要件（サムネイルは必須）**
+
+`mobile_x_thumbnail_priority.viewing_context` の値をそのまま展開する。
+`mobile_x_thumbnail_priority.success_condition` の値をそのまま展開する。
+
+**⑧ フォント・タイポグラフィ**
+
+`typography.font_family.japanese` の値をそのまま展開する。
+`typography_for_thumbnail.main_title_position` の値をそのまま展開する。
+`typography_for_thumbnail.main_title_layout` の値をそのまま展開する。
+`typography_for_thumbnail.subcopy_rule` の値をそのまま展開する。
+
+**⑨ スタイル・トーン・禁止事項**
+
+`information_density.max_major_elements` の値 → 「主要要素は〇個以内に絞る」として展開する。
+`information_density.prohibit` の値をそのまま禁止事項として列挙する。
+`cards_and_icons.icon_limit` の値をそのまま展開する。
+`layout_principles.avoid` の値をそのまま禁止表現として列挙する。
+`layout_principles.recommend` の値をそのまま推奨表現として列挙する。
+`quality_bar.target_impression` の値をそのまま目標印象として展開する。
+`quality_bar.avoid_impression` の値をそのまま禁止印象として展開する。
+`quality_bar.positioning` の値をそのまま展開する。
+
+---
+
+#### 【プロンプトテンプレート（サムネイル）】
+
+以下のプレースホルダーを04_image_style.txtの対応フィールドの値で埋めてプロンプトを生成する。
+
+```
+画像内に『[メインコピー]』という日本語テキストを左上起点で大きく表示。[typography_for_thumbnail.main_title_layout の値]。サブコピー「[サブコピー]」をその下に[typography_for_thumbnail.subcopy_rule の値]で配置する。
+
+[mobile_x_thumbnail_priority.viewing_context の値]。[mobile_x_thumbnail_priority.success_condition の値]。
+
+[layout_principles.structural_anchor の値]。背景は[background_colors.surface の値]と[background_colors.background の値]を基調とする。
+
+左側には[Before状態のビジュアルを1つだけ]を置く。右側には[After状態のビジュアルを1つだけ]を置く。主要要素は[information_density.max_major_elements の値]個以内に絞る。[cards_and_icons.icon_limit の値]。
+
+[information_density.prohibit の値]を禁止する。[layout_principles.avoid の値]を避ける。[layout_principles.recommend の値]を実現する。
+
+[typography.font_family.japanese の値]・Boldで[typography_for_thumbnail.main_title_position の値]の階層構造。
+
+[quality_bar.positioning の値]。[quality_bar.target_impression の値]な印象にする。[quality_bar.avoid_impression の値]な表現は禁止する。
+```
+
+---
+
+#### 【実行後チェックリスト】
+
+プロンプトをJSONに書き出す前に全項目を確認する：
+
+- [ ] 英語プロンプトが混入していない（固有名詞を除く）
+- [ ] 冒頭に日本語テキスト表示の指示が明記されている（サムネイル）
+- [ ] 表示環境（スマホ・Xタイムライン）が指定されている（サムネイル）
+- [ ] 主要要素が3つ以内に絞られている
+- [ ] 禁止事項（均等配置・説明図・多数要素）が明示されている
+- [ ] Google Blue を構造軸として使うことが指定されている
+- [ ] テキスト可読性の要件が含まれている（サムネイル）
+- [ ] 04_image_style.txtの各フィールド値がプロンプトに直接展開されている（抽象的な言い換えになっていないか確認）
+
+---
+
+#### 【JSONフォーマット】
+
 ```json
 [
   {
     "type": "thumbnail",
     "description_ja": "どんな画像か日本語で説明",
-    "prompt_en": "Gemini 3.1 Flash Image向け英語プロンプト（写真調・高品質・テキストなし）",
+    "main_copy": "メインコピー",
+    "sub_copy": "サブコピー",
+    "prompt_ja": "9要素を組み込んだ日本語プロンプト",
     "aspect_ratio": "16:9"
   },
   {
     "type": "body",
     "description_ja": "どんな画像か日本語で説明",
-    "prompt_en": "Gemini 3.1 Flash Image向け英語プロンプト（写真調・高品質・テキストなし）",
+    "prompt_ja": "日本語プロンプト（本文画像は冒頭テキスト指示なし・ビジュアル重視）",
     "aspect_ratio": "1:1"
   }
 ]

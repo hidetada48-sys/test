@@ -1,8 +1,10 @@
 [
   {
     "type": "thumbnail",
-    "description_ja": "「トークンが飛ぶ→解決」の対比構図。Claude×NotebookLMをGoogle Blueの太い帯で繋ぐ。メインタイトル「トークンが飛んでいた」を左上起点のBoldテキストで配置。白ベース・Google Materialデザイン準拠",
-    "prompt_en": "Google Material Design style thumbnail. White background with a bold Google Blue (#4285F4) horizontal band anchoring the layout. Left side shows a chat interface icon with a red warning indicator representing token overflow. Right side shows a clean notebook/document icon in Google Blue representing NotebookLM. A thick Google Blue arrow connects them left to right, symbolizing the solution. Bold text area at top-left for title overlay. Clean, professional, no small details, strong visual hierarchy. Flat design, no 3D effects. Color palette: white, Google Blue #4285F4, Google Red #DB4437. Minimalist, strong composition, mobile-readable. No text inside the image.",
+    "description_ja": "「トークンが飛ぶ→解決」の対比構図。左にBefore（トークン消費の問題）、右にAfter（notebooklm-pyで解決）。メインコピーを左上起点Boldテキストで配置。白ベース・Google Materialデザイン",
+    "main_copy": "検索するたびトークンが飛んでいた",
+    "sub_copy": "notebooklm-pyで1/10になった話",
+    "prompt_ja": "画像内に『検索するたびトークンが飛んでいた』という日本語テキストを左上起点で大きく表示。2段または3段で構成し、重要語句を独立行にして強い階層を作る。サブコピー「notebooklm-pyで1/10になった話」をその下に短く圧縮し1行以内で処理する。スマートフォンのXタイムラインで最初に見られることを前提に設計する。縮小表示でもメインタイトルが一瞬で読め、テーマが即時に理解できること。Google Blue（#4285F4）を軸にした太めの帯またはベースラインで画面全体を支える。背景は#FFFFFFと#F8F9FAを基調とする。左側にはトークンが燃えて消えていくBeforeの状態を象徴する1つの大きなビジュアルのみ置く（Google Red #DB4437を使用）。右側にはNotebookLMが資料を吸収しClaudeに薄いクエリだけが届くAfterの状態を象徴する1つの大きなビジュアルのみ置く（Google Green #0F9D58を使用）。主要要素はタイトル・Before・Afterの3個以内に絞る。主要アイコンは3要素以内を基本とする。小さな注釈・長い説明文・細かい補足・実装ポイントの過剰記載・装飾目的だけの小要素を禁止する。プレゼン資料風の均等配置・説明図に見える弱い並列配置・軽く見える余白の使い方を避ける。非対称寄りの視線誘導・主役が明確な構図・面で支えるレイアウトを実現する。Google Noto Sans JP・Boldで左上起点の階層構造。図解ではなくSNS上でクリックを生むキービジュアルとして成立させる。知的・端的・プロフェッショナル・強い・整理された印象にする。軽い・素人っぽい・説明くさい・情報過多・サムネとして弱い表現は禁止する。",
     "aspect_ratio": "16:9"
   },
   {

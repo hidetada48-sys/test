@@ -11,6 +11,7 @@ Gemini Nano Banana Pro（gemini-3-pro-image-preview）で画像を生成してou
 import os
 import sys
 import json
+import argparse
 from datetime import datetime
 from pathlib import Path
 
@@ -51,6 +52,12 @@ def find_current_output_dir() -> Path:
 # ========== メイン処理 ==========
 
 def main():
+    # --type thumbnail など指定するとそのtypeだけ生成する
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--type", help="生成するtypeを指定（例: thumbnail, body）")
+    parser.add_argument("--file", help="使用するJSONファイル名を指定（output/YYYY-MM-DD/ 内）")
+    args = parser.parse_args()
+
     print("=" * 50)
     print("  Gemini Nano Banana Pro 画像生成")
     print("=" * 50)
@@ -69,7 +76,7 @@ def main():
         print(f"\n❌ {e}")
         sys.exit(1)
 
-    PROMPT_FILE = current_dir / "image_prompts.json"
+    PROMPT_FILE = current_dir / (args.file if args.file else "image_prompts.json")
     IMAGE_DIR   = current_dir / "images"
 
     print(f"\n📁 対象フォルダ: {current_dir.name}")
@@ -77,6 +84,11 @@ def main():
     # プロンプトの読み込み
     with open(PROMPT_FILE, "r", encoding="utf-8") as f:
         prompts = json.load(f)
+
+    # --type 指定があればフィルタリング
+    if args.type:
+        prompts = [p for p in prompts if p.get("type") == args.type]
+        print(f"\n🔍 type={args.type} のみ対象")
 
     print(f"\n📋 {len(prompts)}枚の画像を生成します")
 
@@ -92,7 +104,8 @@ def main():
     results = []
     for i, item in enumerate(prompts, 1):
         img_type    = item.get("type", "body")
-        prompt_en   = item.get("prompt_en", "")
+        # prompt_ja優先、なければ旧形式のprompt_enにフォールバック
+        prompt_ja   = item.get("prompt_ja", item.get("prompt_en", ""))
         desc_ja     = item.get("description_ja", "")
         aspect      = item.get("aspect_ratio", "1:1")
 
@@ -102,7 +115,7 @@ def main():
             # アスペクト比・解像度をImageConfigパラメータとして正しく渡す
             response = client.models.generate_content(
                 model=IMAGE_MODEL,
-                contents=prompt_en,
+                contents=prompt_ja,
                 config=types.GenerateContentConfig(
                     response_modalities=["IMAGE", "TEXT"],
                     image_config=types.ImageConfig(
