@@ -1,0 +1,15 @@
+記事テーマ：Claudeに同じミスを繰り返させない仕組みを作った話
+
+ターゲット読者：Claude Codeを日常的に使っているユーザー。同じミスを繰り返されて困っている人。
+
+記事の方向性：
+- CLAUDE.mdにルールを書くだけでは足りない理由
+- past_mistakes.mdという「反省ファイル」を読ませる仕組みの設計と実装
+- 実際のミス8件（M-001〜M-008）の具体的な経緯
+- ユーザーとClaude Codeの共同管理ファイルとして育てる運用
+
+キーワード候補：
+- Claude Code CLAUDE.md ミス 繰り返す
+- Claude Code past_mistakes 設定
+- AI 反省文 読ませる
+- Claude Code カスタマイズ 記憶
